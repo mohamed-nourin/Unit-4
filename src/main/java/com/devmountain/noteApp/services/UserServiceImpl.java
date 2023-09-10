@@ -1,9 +1,8 @@
 package com.devmountain.noteApp.services;
 
 import com.devmountain.noteApp.dtos.UserDto;
-import com.devmountain.noteApp.entites.User;
+import com.devmountain.noteApp.entities.User;
 import com.devmountain.noteApp.repositories.UserRepository;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -19,7 +18,6 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
-
     @Override
     @Transactional
     public List<String> addUser(UserDto userDto){
@@ -29,19 +27,15 @@ public class UserServiceImpl implements UserService {
         response.add("http://localhost:8080/login.html");
         return response;
     }
-
     @Override
     public List<String> userLogin(UserDto userDto){
         List<String> response = new ArrayList<>();
         Optional<User> userOptional = userRepository.findByUsername(userDto.getUsername());
-        if (userOptional.isPresent()){
-            if (passwordEncoder.matches(userDto.getPassword(), userOptional.get().getPassword())){
-                response.add("http://localhost:8080/home.html");
-                response.add(String.valueOf(userOptional.get().getId()));
-            } else {
-                response.add("Username or password incorrect");
-            }
-        } else {
+        if(userOptional.isPresent()){
+            response.add("http://localhost:8080/home.html");
+            response.add(String.valueOf(userOptional.get().getId()));
+        }
+        else {
             response.add("Username or password incorrect");
         }
         return response;

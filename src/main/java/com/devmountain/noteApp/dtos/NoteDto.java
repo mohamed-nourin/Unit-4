@@ -1,6 +1,6 @@
 package com.devmountain.noteApp.dtos;
 
-import com.devmountain.noteApp.entites.Note;
+import com.devmountain.noteApp.entities.Note;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

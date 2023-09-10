@@ -1,15 +1,12 @@
 package com.devmountain.noteApp.services;
 
 import com.devmountain.noteApp.dtos.NoteDto;
-import jakarta.transaction.Transactional;
 
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
 public interface NoteService {
-    List<NoteDto> getAllNotesByUserId(Long userId);
-
     @Transactional
     void addNote(NoteDto noteDto, Long userId);
 
@@ -18,6 +15,8 @@ public interface NoteService {
 
     @Transactional
     void updateNoteById(NoteDto noteDto);
+
+    List<NoteDto> getAllNotesByUserId(Long userId);
 
     Optional<NoteDto> getNoteById(Long noteId);
 }

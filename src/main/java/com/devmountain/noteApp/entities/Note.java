@@ -1,14 +1,20 @@
-package com.devmountain.noteApp.entites;
+package com.devmountain.noteApp.entities;
 
 import com.devmountain.noteApp.dtos.NoteDto;
-import com.devmountain.noteApp.entites.User;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.persistence.ManyToOne;
 
 
 @Entity

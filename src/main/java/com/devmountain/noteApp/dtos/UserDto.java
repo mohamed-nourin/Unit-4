@@ -1,6 +1,6 @@
 package com.devmountain.noteApp.dtos;
 
-import com.devmountain.noteApp.entites.User;
+import com.devmountain.noteApp.entities.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @Data
 @AllArgsConstructor
